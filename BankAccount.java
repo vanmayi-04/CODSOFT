@@ -1,35 +1,35 @@
 import java.util.Scanner;
 
 class BankAccount {
-    private double balance;
+    private double bal;
 
     public BankAccount(double initialBalance) {
         if (initialBalance > 0) {
-            this.balance = initialBalance;
+            this.bal = initialBalance;
         } else {
-            this.balance = 0;
+            this.bal = 0;
         }
     }
 
     public double getBalance() {
-        return balance;
+        return bal;
     }
 
-    public void deposit(double amount) {
-        if (amount > 0) {
-            balance += amount;
-            System.out.println("Successfully deposited: $" + amount);
+    public void deposit(double amt) {
+        if (amt > 0) {
+            bal += amt;
+            System.out.println("Successfully deposited: $" + amt);
         } else {
             System.out.println("Deposit amount must be positive.");
         }
     }
 
-    public boolean withdraw(double amount) {
-        if (amount > 0 && amount <= balance) {
-            balance -= amount;
-            System.out.println("Successfully withdrew: $" + amount);
+    public boolean withdraw(double amt) {
+        if (amt > 0 && amt <= bal) {
+            bal -= amt;
+            System.out.println("Successfully withdrew: $" + amt);
             return true;
-        } else if (amount > balance) {
+        } else if (amt > bal) {
             System.out.println("Insufficient balance.");
             return false;
         } else {
@@ -84,8 +84,8 @@ class ATM {
 
     private void deposit() {
         System.out.print("Enter amount to deposit: $");
-        double amount = scanner.nextDouble();
-        bankAccount.deposit(amount);
+        double amt = scanner.nextDouble();
+        bankAccount.deposit(amt);
     }
 
     private void withdraw() {
